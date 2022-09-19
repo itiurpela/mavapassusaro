@@ -22,7 +22,7 @@ def _log_hist_log(hist_log):
     logging.basicConfig(
         level=logging.DEBUG,
         format='%(message)s',
-        filename=os.path.join(LOG_DIR, ERROR_LOG)
+        filename=os.path.join(BASE_LOG_DIR, ERROR_LOG)
     )
     logging.exception(hist_log.get_timestamp())
     logging.debug("")
