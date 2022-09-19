@@ -1,5 +1,8 @@
 name: BingRewards workflow
-
+on:
+  # schedule:
+  #   - cron: "0 8,13 * * *" #Runs on the 8, and 13th hour UTC everyday
+  workflow_dispatch:
 jobs:
   # ------------------------
   DefineMatrix:
