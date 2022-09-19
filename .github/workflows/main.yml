@@ -74,7 +74,7 @@ jobs:
       - name: Run BingRewards for Account ${{ matrix.account.the_id }}
         run: |
           python BingRewards/BingRewards.py -r -hl -nc -gs \
-          -e ${{ ''steps.sets-secrets.outputs.secret-user'' }} \
-          -p ${{ ''steps.sets-secrets.outputs.secret-pass'' }}
+          -e '${{ steps.sets-secrets.outputs.secret-user }}' \
+          -p '${{ steps.sets-secrets.outputs.secret-pass }}'
           
           # cleanup
