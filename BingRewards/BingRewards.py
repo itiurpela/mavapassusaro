@@ -9,7 +9,7 @@ from src.log import HistLog, StatsJsonLog
 from src.messengers import TelegramMessenger, DiscordMessenger, BaseMessenger
 from src.google_sheets_reporting import GoogleSheetsReporting
 
-LOG_DIR = "logs"
+BASE_LOG_DIR = "logs"
 ERROR_LOG = "error.log"
 RUN_LOG = "run.json"
 SEARCH_LOG = "search.json"
@@ -112,6 +112,8 @@ def main():
         email = __decode(config['email'])
         password = __decode(config['password'])
 
+    LOG_DIR = f'{BASE_LOG_DIR}/{email}'
+    print(LOG_DIR)
     if not os.path.exists(LOG_DIR):
         os.makedirs(LOG_DIR)
 
