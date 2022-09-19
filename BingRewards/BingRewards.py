@@ -105,13 +105,15 @@ def main():
 
     args = parse_search_args()
     if args.email and args.password:
-        email = args.email
-        password = args.password
+        email = args.email.replace("'", '').replace('"', '')
+        password = args.password.replace("'", '').replace('"', '')
         args.cookies = False
     else:
-        email = __decode(config['email'])
-        password = __decode(config['password'])
+        email = __decode(config['email']).replace("'", '').replace('"', '')
+        password = __decode(config['password']).replace("'", '').replace('"', '')
 
+    print(len(email))
+    print(len(password))
     LOG_DIR = f'{BASE_LOG_DIR}/{email}'
     print(LOG_DIR)
     if not os.path.exists(LOG_DIR):
