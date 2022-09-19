@@ -8,6 +8,7 @@ from src.rewards import Rewards
 from src.log import HistLog, StatsJsonLog
 from src.messengers import TelegramMessenger, DiscordMessenger, BaseMessenger
 from src.google_sheets_reporting import GoogleSheetsReporting
+import socket 
 
 BASE_LOG_DIR = "logs"
 ERROR_LOG = "error.log"
@@ -95,6 +96,11 @@ def complete_search(rewards, completion, search_type, search_hist):
 
 
 def main():
+    
+    hostname=socket.gethostname()   
+    IPAddr=socket.gethostbyname(hostname)   
+    print("Your Computer Name is:"+hostname)   
+    print("Your Computer IP Address is:"+IPAddr) 
     # change to top dir
     dir_run_from = os.getcwd()
     top_dir = os.path.dirname(sys.argv[0])
@@ -111,7 +117,7 @@ def main():
     else:
         email = __decode(config['email']).replace("'", '').replace('"', '')
         password = __decode(config['password']).replace("'", '').replace('"', '')
-
+      
     print(len(email))
     print(len(password))
     LOG_DIR = f'{BASE_LOG_DIR}/{email}'
