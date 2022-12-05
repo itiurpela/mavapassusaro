@@ -45,7 +45,7 @@ jobs:
           pip install -r BingRewards/requirements.txt
       - name: Setup BingRewards
         run: |
-          python setup.py \
+          python BingRewards/setup.py \
           -gssi ${{ secrets.GOOGLE_SHEETS_SHEET_ID }} \
           -gstn ${{ secrets.GOOGLE_SHEETS_TAB_NAME }}
         #  -ta   ${{ secrets.TELEGRAM_API_TOKEN }}     \
