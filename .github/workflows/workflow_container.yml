@@ -1,4 +1,4 @@
-name: habanero container
+name: mavapassu container
 on:
   workflow_dispatch:
     inputs:
